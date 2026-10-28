@@ -1,0 +1,23 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accedi con TikTok · Magis Magisque Pubblicazione</title><link rel="icon" href="/magis-pubblicazione-sito/icon-256.png"><link rel="stylesheet" href="/magis-pubblicazione-sito/style.css"></head><body><main>
+<header><img src="/magis-pubblicazione-sito/icon-256.png" alt=""><div class="brand">Magis Magisque Pubblicazione<small>lo strumento di pubblicazione di Magis Magisque · Velletri (RM)</small></div></header>
+<h1>Accedi con TikTok</h1>
+<p>Premi il pulsante: TikTok ti chiederà di autorizzare «Magis Magisque Pubblicazione» a pubblicare video sul tuo account. Dopo l'autorizzazione tornerai qui.</p>
+<a class="btn" id="go" href="#">Accedi con TikTok</a>
+<p class="muted" id="msg">Il collegamento non è ancora attivo: l'app è in attesa di verifica da parte di TikTok.</p>
+<script>
+// Compilato dal sistema di pubblicazione: client key pubblica e redirect.
+var CLIENT_KEY = "";
+var REDIRECT = "https://mluk3m.github.io/magis-pubblicazione-sito/tiktok/callback.html";
+var SCOPES = "user.info.basic,video.publish,video.upload";
+(function(){
+  var a=document.getElementById('go');
+  if(!CLIENT_KEY){a.style.opacity=.5;a.addEventListener('click',function(e){e.preventDefault();});return;}
+  var state=Math.random().toString(36).slice(2);
+  try{sessionStorage.setItem('tt_state',state);}catch(e){}
+  a.href="https://www.tiktok.com/v2/auth/authorize/?client_key="+encodeURIComponent(CLIENT_KEY)+"&scope="+encodeURIComponent(SCOPES)+"&response_type=code&redirect_uri="+encodeURIComponent(REDIRECT)+"&state="+state;
+  document.getElementById('msg').textContent="Ti chiediamo solo i permessi necessari a pubblicare video per tuo conto.";
+})();
+</script>
+<nav class="muted"><a href="/magis-pubblicazione-sito/">Home</a><a href="/magis-pubblicazione-sito/privacy.html">Privacy Policy</a><a href="/magis-pubblicazione-sito/termini.html">Termini di servizio</a></nav>
+<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 28 ottobre 2026</footer>
+</main></body></html>
