@@ -1,0 +1,19 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Canale collegato · Magis Magisque Pubblicazione</title><link rel="icon" href="/magis-pubblicazione-sito/icon-256.png"><link rel="stylesheet" href="/magis-pubblicazione-sito/style.css"></head><body><main>
+<header><img src="/magis-pubblicazione-sito/icon-256.png" alt=""><div class="brand">Magis Magisque Pubblicazione<small>lo strumento di pubblicazione di Magis Magisque · Velletri (RM)</small></div></header>
+<h1 id="t">Un momento…</h1>
+<p id="p"></p>
+<p><code id="code"></code></p>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search), t=document.getElementById('t'), p=document.getElementById('p');
+  if(q.get('error')){t.textContent="Autorizzazione non completata";p.textContent="Google ha risposto: "+q.get('error')+". Puoi riprovare quando vuoi.";return;}
+  var code=q.get('code');
+  if(!code){t.textContent="Nessun codice ricevuto";p.textContent="Torna alla pagina di accesso e riprova.";return;}
+  t.textContent="Grazie, autorizzazione ricevuta.";
+  p.textContent="Manda questo codice a Magis Magisque (vale pochi minuti): lo useremo una sola volta per completare il collegamento del tuo canale.";
+  document.getElementById('code').textContent=code;
+})();
+</script>
+<p><a href="/magis-pubblicazione-sito/">Torna alla home</a></p>
+<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 29 ottobre 2026</footer>
+</main></body></html>

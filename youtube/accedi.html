@@ -1,0 +1,19 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accedi con Google · Magis Magisque Pubblicazione</title><link rel="icon" href="/magis-pubblicazione-sito/icon-256.png"><link rel="stylesheet" href="/magis-pubblicazione-sito/style.css"></head><body><main>
+<header><img src="/magis-pubblicazione-sito/icon-256.png" alt=""><div class="brand">Magis Magisque Pubblicazione<small>lo strumento di pubblicazione di Magis Magisque · Velletri (RM)</small></div></header>
+<h1>Collega il tuo canale YouTube</h1>
+<p>Premi il pulsante: Google ti chiederà con quale account entrare e di autorizzare «Magis Magisque Pubblicazione» a caricare video sul tuo canale. Se hai più canali, scegli quello giusto. Dopo l'autorizzazione tornerai qui.</p>
+<p class="muted">Google potrebbe mostrare un avviso «app non verificata»: è normale per le app in uso privato come questa. Premi «Avanzate» → «Vai a Magis Magisque Pubblicazione».</p>
+<a class="btn" id="go" href="#">Accedi con Google</a>
+<script>
+var CLIENT_ID = "374667634770-s8ta39l5qs7g0v4lcaddb83ul2m90eg8.apps.googleusercontent.com";
+var REDIRECT = "https://mluk3m.github.io/magis-pubblicazione-sito/youtube/callback.html";
+var SCOPES = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube";
+(function(){
+  var a=document.getElementById('go');
+  var state=Math.random().toString(36).slice(2);
+  a.href="https://accounts.google.com/o/oauth2/v2/auth?client_id="+encodeURIComponent(CLIENT_ID)+"&redirect_uri="+encodeURIComponent(REDIRECT)+"&response_type=code&scope="+encodeURIComponent(SCOPES)+"&access_type=offline&prompt=consent&include_granted_scopes=true&state="+state;
+})();
+</script>
+<nav class="muted"><a href="/magis-pubblicazione-sito/">Home</a><a href="/magis-pubblicazione-sito/privacy.html">Privacy Policy</a><a href="/magis-pubblicazione-sito/termini.html">Termini di servizio</a><a href="/magis-pubblicazione-sito/cancellazione-dati.html">Cancellazione dati</a></nav>
+<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 29 ottobre 2026</footer>
+</main></body></html>
