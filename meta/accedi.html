@@ -1,0 +1,19 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accedi con Facebook · Magis Magisque Pubblicazione</title><link rel="icon" href="/magis-pubblicazione-sito/icon-256.png"><link rel="stylesheet" href="/magis-pubblicazione-sito/style.css"></head><body><main>
+<header><img src="/magis-pubblicazione-sito/icon-256.png" alt=""><div class="brand">Magis Magisque Pubblicazione<small>lo strumento di pubblicazione di Magis Magisque · Velletri (RM)</small></div></header>
+<h1>Collega la tua Pagina Facebook e il tuo Instagram</h1>
+<p>Premi il pulsante: Facebook ti chiederà di scegliere la <strong>Pagina</strong> e il <strong>profilo Instagram</strong> (professionale, collegato alla Pagina) che vuoi affidare a Magis Magisque, e di confermare i permessi per pubblicare e leggere le statistiche. Dopo la conferma tornerai qui.</p>
+<a class="btn" id="go" href="#">Accedi con Facebook</a>
+<p class="muted">Chiediamo solo i permessi necessari a pubblicare e a leggere le statistiche dei contenuti. Puoi toglierli quando vuoi da Facebook: Impostazioni → Sicurezza → App e siti web.</p>
+<script>
+var APP_ID = "4529946877246655";
+var CONFIG_ID = "1703832564746384";
+var REDIRECT = "https://mluk3m.github.io/magis-pubblicazione-sito/meta/callback.html";
+(function(){
+  var a=document.getElementById('go');
+  var state=Math.random().toString(36).slice(2);
+  a.href="https://www.facebook.com/v24.0/dialog/oauth?client_id="+APP_ID+"&config_id="+CONFIG_ID+"&response_type=code&redirect_uri="+encodeURIComponent(REDIRECT)+"&state="+state;
+})();
+</script>
+<nav class="muted"><a href="/magis-pubblicazione-sito/">Home</a><a href="/magis-pubblicazione-sito/privacy.html">Privacy Policy</a><a href="/magis-pubblicazione-sito/termini.html">Termini di servizio</a><a href="/magis-pubblicazione-sito/cancellazione-dati.html">Cancellazione dati</a></nav>
+<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 30 ottobre 2026</footer>
+</main></body></html>
