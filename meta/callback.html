@@ -2,7 +2,8 @@
 <header><img src="/magis-pubblicazione-sito/icon-256.png" alt=""><div class="brand">Magis Magisque Pubblicazione<small>lo strumento di pubblicazione di Magis Magisque · Velletri (RM)</small></div></header>
 <h1 id="t">Un momento…</h1>
 <p id="p"></p>
-<p><code id="code"></code></p>
+<p><code id="code" style="word-break:break-all"></code></p>
+<p><button id="copia" type="button" hidden>Copia il codice</button> <span id="ok"></span></p>
 <script>
 (function(){
   var q=new URLSearchParams(location.search), t=document.getElementById('t'), p=document.getElementById('p');
@@ -12,6 +13,8 @@
   t.textContent="Grazie, autorizzazione ricevuta.";
   p.textContent="Manda questo codice a Magis Magisque (vale pochi minuti): lo useremo una sola volta per completare il collegamento della tua Pagina e del tuo Instagram.";
   document.getElementById('code').textContent=code;
+  var b=document.getElementById('copia');b.hidden=false;
+  b.onclick=function(){navigator.clipboard.writeText(code).then(function(){document.getElementById('ok').textContent="Copiato ✓";},function(){document.getElementById('ok').textContent="Seleziona il codice e copialo a mano.";});};
 })();
 </script>
 <p><a href="/magis-pubblicazione-sito/">Torna alla home</a></p>
