@@ -12,12 +12,13 @@
   var st=q.get('state')||'';
   if(/^[a-z0-9_-]+\.\d+\.[0-9a-f]{64}$/.test(st)){
     // invito firmato: il motore completa il collegamento da solo
-    t.textContent="Collegamento in corso…";
+    t.textContent="Collegamento in corso… · Connecting…";
     fetch("https://magis-pubblicazione.magismagisque.workers.dev/tiktok/collega",{method:"POST",
       headers:{"Content-Type":"application/json"},body:JSON.stringify({code:code,invito:st})})
     .then(function(r){return r.json();}).then(function(d){
-      if(d.ok){t.textContent="Account collegato ✅";
-        p.textContent="@"+d.username+" è collegato a Magis Magisque Pubblicazione. I video che approvi usciranno da soli all'ora stabilita. Puoi chiudere questa pagina.";}
+      if(d.ok){t.textContent="Account collegato ✅ · Account connected";
+        p.textContent="@"+d.username+" è collegato a Magis Magisque Pubblicazione. I video che approvi usciranno da soli all'ora stabilita. Puoi chiudere questa pagina.";
+        var en=document.createElement('p');en.className='en';en.textContent="@"+d.username+" is connected to Magis Magisque Pubblicazione. Videos you approve will be posted automatically at the scheduled time. You can close this page.";p.after(en);}
       else{t.textContent="Collegamento non riuscito";p.textContent=(d.errore||"errore")+". Riprova dal link che ti abbiamo mandato, o scrivici.";}
     }).catch(function(){t.textContent="Collegamento non riuscito";p.textContent="Problema di rete. Riprova dal link che ti abbiamo mandato.";});
     history.replaceState(null,"",location.pathname);
