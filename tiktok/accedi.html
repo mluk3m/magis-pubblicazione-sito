@@ -6,7 +6,8 @@
 <p class="muted" id="msg">Ti chiediamo solo i permessi necessari a pubblicare video per tuo conto.</p>
 <script>
 // Compilato dal sistema di pubblicazione: client key pubblica e redirect.
-var CLIENT_KEY = "sbawk6h8okd6n477gc"; // Sandbox «Collaudo Magis»; in produzione si sostituisce con la chiave di produzione
+// Produzione (app approvata da TikTok il 5 nov 2026). Per il collaudo in sandbox: accedi.html?ambiente=sandbox
+var CLIENT_KEY = /[?&]ambiente=sandbox\b/.test(location.search) ? "sbawk6h8okd6n477gc" : "aw505y6qb65qy1oq";
 var REDIRECT = "https://mluk3m.github.io/magis-pubblicazione-sito/tiktok/callback.html";
 var SCOPES = "user.info.basic,video.publish,video.upload";
 (function(){
@@ -19,5 +20,5 @@ var SCOPES = "user.info.basic,video.publish,video.upload";
 })();
 </script>
 <nav class="muted"><a href="/magis-pubblicazione-sito/">Home</a><a href="/magis-pubblicazione-sito/privacy.html">Privacy Policy</a><a href="/magis-pubblicazione-sito/termini.html">Termini di servizio</a><a href="/magis-pubblicazione-sito/cancellazione-dati.html">Cancellazione dati</a></nav>
-<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 28 ottobre 2026</footer>
+<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 5 novembre 2026</footer>
 </main></body></html>
