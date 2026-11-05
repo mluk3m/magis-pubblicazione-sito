@@ -9,11 +9,25 @@
   if(q.get('error')){t.textContent="Autorizzazione non completata";p.textContent="TikTok ha risposto: "+(q.get('error_description')||q.get('error'))+". Puoi riprovare quando vuoi.";return;}
   var code=q.get('code');
   if(!code){t.textContent="Nessun codice ricevuto";p.textContent="Torna alla pagina di accesso e riprova.";return;}
+  var st=q.get('state')||'';
+  if(/^[a-z0-9_-]+\.\d+\.[0-9a-f]{64}$/.test(st)){
+    // invito firmato: il motore completa il collegamento da solo
+    t.textContent="Collegamento in corso…";
+    fetch("https://magis-pubblicazione.magismagisque.workers.dev/tiktok/collega",{method:"POST",
+      headers:{"Content-Type":"application/json"},body:JSON.stringify({code:code,invito:st})})
+    .then(function(r){return r.json();}).then(function(d){
+      if(d.ok){t.textContent="Account collegato ✅";
+        p.textContent="@"+d.username+" è collegato a Magis Magisque Pubblicazione. I video che approvi usciranno da soli all'ora stabilita. Puoi chiudere questa pagina.";}
+      else{t.textContent="Collegamento non riuscito";p.textContent=(d.errore||"errore")+". Riprova dal link che ti abbiamo mandato, o scrivici.";}
+    }).catch(function(){t.textContent="Collegamento non riuscito";p.textContent="Problema di rete. Riprova dal link che ti abbiamo mandato.";});
+    history.replaceState(null,"",location.pathname);
+    return;
+  }
   t.textContent="Grazie, autorizzazione ricevuta.";
   p.textContent="Manda questo codice a Magis Magisque (vale pochi minuti): lo useremo una sola volta per completare il collegamento del tuo account.";
   document.getElementById('code').textContent=code;
 })();
 </script>
 <p><a href="/magis-pubblicazione-sito/">Torna alla home</a></p>
-<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 28 ottobre 2026</footer>
+<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 5 novembre 2026</footer>
 </main></body></html>

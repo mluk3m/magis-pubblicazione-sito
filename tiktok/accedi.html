@@ -13,7 +13,10 @@ var SCOPES = "user.info.basic,video.publish,video.upload";
 (function(){
   var a=document.getElementById('go');
   if(!CLIENT_KEY){a.style.opacity=.5;a.addEventListener('click',function(e){e.preventDefault();});return;}
-  var state=Math.random().toString(36).slice(2);
+  // Invito firmato di Magis Magisque (accedi.html?invito=…): torna nello «state» e la pagina di ritorno
+  // completa il collegamento da sola. Senza invito: codice da mandare a mano, come prima.
+  var inv=(new URLSearchParams(location.search).get('invito')||'').trim();
+  var state=/^[a-z0-9_-]+\.\d+\.[0-9a-f]{64}$/.test(inv)?inv:Math.random().toString(36).slice(2);
   try{sessionStorage.setItem('tt_state',state);}catch(e){}
   a.href="https://www.tiktok.com/v2/auth/authorize/?client_key="+encodeURIComponent(CLIENT_KEY)+"&scope="+encodeURIComponent(SCOPES)+"&response_type=code&redirect_uri="+encodeURIComponent(REDIRECT)+"&state="+state;
   document.getElementById('msg').textContent="Ti chiediamo solo i permessi necessari a pubblicare video per tuo conto.";
