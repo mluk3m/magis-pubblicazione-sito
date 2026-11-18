@@ -22,7 +22,12 @@
         p.textContent="Ora completiamo il collegamento della Pagina e dell'Instagram (di solito ci vuole un minuto o due). Ti scriveremo noi per confermarti se è andato a buon fine. Puoi chiudere questa pagina.";}
       else{t.textContent="Collegamento non riuscito";
         p.textContent=/non valido o scaduto/.test(d.errore||"")?"Il link non è più valido: scrivici e te ne mandiamo uno nuovo.":"Qualcosa non ha funzionato. Riprova dal link che ti abbiamo mandato, o scrivici.";}
-    }).catch(function(){t.textContent="Collegamento non riuscito";p.textContent="Problema di rete. Riprova dal link che ti abbiamo mandato, o scrivici.";});
+    }).catch(function(){
+      // motore non raggiungibile: riserva manuale, il codice si mostra perché si possa mandare a mano
+      t.textContent="Collegamento non completato";
+      p.textContent="Problema di rete. Manda subito questo codice a Magis Magisque, oppure riprova dal link che ti abbiamo mandato.";
+      var box=document.getElementById('code'); if(box){box.textContent=code; if(box.parentNode){box.parentNode.hidden=false;}}
+    });
     history.replaceState(null,"",location.pathname);
     return;
   }

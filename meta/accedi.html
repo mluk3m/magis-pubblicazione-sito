@@ -33,7 +33,9 @@ var REDIRECT = "https://mluk3m.github.io/magis-pubblicazione-sito/meta/callback.
   // Invito firmato di Magis Magisque (accedi.html?invito=…, 18 nov 2026): torna nello «state» e la pagina di ritorno
   // completa il collegamento da sola. Senza invito: codice da mandare a mano, come prima.
   var inv=(new URLSearchParams(location.search).get('invito')||'').trim();
-  var state=/^[a-z0-9_-]+\.\d+\.[0-9a-f]{64}$/.test(inv)?inv:Math.random().toString(36).slice(2);
+  var valido=/^[a-z0-9_-]+\.\d+\.[0-9a-f]{64}$/.test(inv);
+  var state=valido?inv:Math.random().toString(36).slice(2);
+  if(inv&&!valido){var w=document.createElement('p');w.className='muted';w.textContent="Attenzione: il link d'invito sembra incompleto. Copialo per intero o chiedine uno nuovo a Magis Magisque.";a.parentNode.insertBefore(w,a);}
   a.href="https://www.facebook.com/v24.0/dialog/oauth?client_id="+APP_ID+"&config_id="+CONFIG_ID+"&response_type=code&redirect_uri="+encodeURIComponent(REDIRECT)+"&state="+state;
 })();
 </script>
