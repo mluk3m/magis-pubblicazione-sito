@@ -14,6 +14,7 @@
   if(/^[a-z0-9_-]+\.\d+\.[0-9a-f]{64}$/.test(st)){
     // invito firmato (18 nov 2026): il motore avvia il collegamento da solo, niente codici da copiare
     t.textContent="Collegamento in corso…";
+    var box=document.getElementById('code'); if(box&&box.parentNode){box.parentNode.hidden=true;}
     fetch("https://motore.magismagisque.it/meta/collega",{method:"POST",
       headers:{"Content-Type":"application/json"},body:JSON.stringify({code:code,invito:st})})
     .then(function(r){return r.json();}).then(function(d){
