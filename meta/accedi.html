@@ -1,19 +1,42 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accedi con Facebook · Magis Magisque Pubblicazione</title><link rel="icon" href="/magis-pubblicazione-sito/icon-256.png"><link rel="stylesheet" href="/magis-pubblicazione-sito/style.css"></head><body><main>
 <header><img src="/magis-pubblicazione-sito/icon-256.png" alt=""><div class="brand">Magis Magisque Pubblicazione<small>lo strumento di pubblicazione di Magis Magisque · Velletri (RM)</small></div></header>
 <h1>Collega la tua Pagina Facebook e il tuo Instagram</h1>
-<p>Premi il pulsante: Facebook ti chiederà di scegliere la <strong>Pagina</strong> e il <strong>profilo Instagram</strong> (professionale, collegato alla Pagina) che vuoi affidare a Magis Magisque, e di confermare i permessi per pubblicare e leggere le statistiche. Dopo la conferma tornerai qui.</p>
+<p>Premi il pulsante: Facebook ti chiederà di scegliere la <strong>Pagina</strong> e il <strong>profilo Instagram</strong> (professionale, collegato alla Pagina) che vuoi affidare a Magis Magisque, e di confermare i permessi per pubblicare, leggere le statistiche e gestire i commenti. Dopo la conferma tornerai su una pagina di Magis Magisque.</p>
+<details id="prima"><summary><strong>Prima di iniziare: cosa ti serve</strong> (tocca per aprire)</summary>
+<p><strong>1. Un account Instagram per professionisti</strong> (business o creator). Se il tuo è personale, dall'app Instagram:</p>
+<ol>
+<li>Tocca <em>Profilo</em> o la tua immagine del profilo in basso a destra.</li>
+<li>Tocca <em>Altro</em> per accedere a <em>Impostazioni e attività</em>.</li>
+<li>Sotto <em>Per professionisti</em>, tocca <em>Tipo di account e strumenti</em>.</li>
+<li>Seleziona <em>Passa a un account per professionisti</em>, scegli la categoria, poi <em>Creator</em> o <em>Azienda</em>, e segui i passaggi fino a <em>Avanti</em>.</li>
+</ol>
+<p class="muted">Nota di Instagram: se il tuo account personale è privato, il passaggio a un account per professionisti lo renderà pubblico.</p>
+<p><strong>2. Una Pagina Facebook di cui hai il controllo completo, collegata al tuo Instagram.</strong> Se non è ancora collegata (o non hai una Pagina), dall'app Instagram:</p>
+<ol>
+<li>Vai al tuo profilo e tocca <em>Modifica profilo</em>.</li>
+<li>Scorri fino a <em>Informazioni aziendali pubbliche</em> (account business) o <em>Informazioni del profilo</em> (account creator).</li>
+<li>Tocca <em>Pagina</em>, quindi <em>Collega o crea</em>, poi <em>Continua</em>.</li>
+<li>Tocca <em>Accedi a Facebook</em>, poi <em>Continua</em>; scegli la Pagina e tocca <em>Collega</em>. Se non hai una Pagina, tocca <em>Crea una nuova Pagina Facebook</em> e segui i passaggi.</li>
+</ol>
+<p class="muted">Meta indica anche: l'account Instagram per professionisti deve essere nello stesso portfolio business della Pagina.</p>
+<p><strong>3. Poi torna qui</strong> e premi «Accedi con Facebook» con l'account Facebook che gestisce la Pagina.</p>
+<p class="muted">Fonti: Centro assistenza di Instagram, <a href="https://help.instagram.com/502981923235522">«Configurazione di un account Instagram per professionisti per accedere agli strumenti e controlli per creator o per le aziende»</a>; Centro assistenza per le aziende di Meta, <a href="https://www.facebook.com/business/help/898752960195806">«Come collegare o scollegare Instagram e una Pagina Facebook»</a>.</p>
+</details>
 <a class="btn" id="go" href="#">Accedi con Facebook</a>
-<p class="muted">Chiediamo solo i permessi necessari a pubblicare e a leggere le statistiche dei contenuti. Puoi toglierli quando vuoi da Facebook: Impostazioni → Sicurezza → App e siti web.</p>
+<p class="muted">Chiediamo solo i permessi necessari a pubblicare, a leggere le statistiche e a gestire i commenti dei contenuti. Puoi toglierli quando vuoi da Facebook: Impostazioni → Sicurezza → App e siti web.</p>
 <script>
 var APP_ID = "4529946877246655";
 var CONFIG_ID = "2798477093886501"; // «Collegamento clienti v2» (30 ott 2026): 9 permessi, incl. commenti
 var REDIRECT = "https://mluk3m.github.io/magis-pubblicazione-sito/meta/callback.html";
 (function(){
   var a=document.getElementById('go');
-  var state=Math.random().toString(36).slice(2);
+  // Invito firmato di Magis Magisque (accedi.html?invito=…, 18 nov 2026): torna nello «state» e la pagina di ritorno
+  // completa il collegamento da sola. Senza invito: codice da mandare a mano, come prima.
+  var inv=(new URLSearchParams(location.search).get('invito')||'').trim();
+  var state=/^[a-z0-9_-]+\.\d+\.[0-9a-f]{64}$/.test(inv)?inv:Math.random().toString(36).slice(2);
   a.href="https://www.facebook.com/v24.0/dialog/oauth?client_id="+APP_ID+"&config_id="+CONFIG_ID+"&response_type=code&redirect_uri="+encodeURIComponent(REDIRECT)+"&state="+state;
 })();
 </script>
 <nav class="muted"><a href="/magis-pubblicazione-sito/">Home</a><a href="/magis-pubblicazione-sito/privacy.html">Privacy Policy</a><a href="/magis-pubblicazione-sito/termini.html">Termini di servizio</a><a href="/magis-pubblicazione-sito/cancellazione-dati.html">Cancellazione dati</a></nav>
-<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 30 ottobre 2026</footer>
+<footer>Magis Magisque · Luca Terrusa · Velletri (RM), Italia · <a href="mailto:lucaterrusa@gmail.com">lucaterrusa@gmail.com</a><br>Ultimo aggiornamento: 18 novembre 2026</footer>
 </main></body></html>
